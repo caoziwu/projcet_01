@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            top: 40px;
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+    </style>
+    <script src="animate.js"></script>
+</head>
+
+<body>
+    <div>123</div>
+    <script>
+        var div = document.querySelector('div')
+        div.addEventListener('mouseenter', function () {
+            animate(div, -100, change())
+        })
+        div.addEventListener('mouseleave', function () {
+            animate(div, 0)
+        })
+        function change() {
+            console.log('调用了');
+        }
+    </script>
+    <!-- <script>
+        // 获取元素
+        var div = document.querySelector('div');
+        var span = document.querySelector('span')
+        var blue_box = document.querySelector('.div')
+        var sky_blue = document.querySelector('.span')
+        // 封装动画函数
+        function animate(obj, target) {
+            // 清楚以前的定时器
+            clearInterval(obj.timer)
+            // 获取最初位置
+            var left = obj.offsetLeft
+            // 设置定时器
+            obj.timer = setInterval(function () {
+                // 设置结束条件
+
+                if (obj.offsetLeft >= left + target) {
+                    clearInterval(obj.timer);
+                }
+                // 计算移动速度：目标位置-现在位置/10
+                let speed = (left + target - obj.offsetLeft) / 20
+                obj.style.left = obj.offsetLeft + speed + 'px'
+                obj.style.top = obj.offsetTop + speed + 'px'
+            }, 300)
+        }
+        // 调用函数
+        blue_box.addEventListener('click', function () {
+            animate(div, 100)
+        })
+        sky_blue.addEventListener('click', function () {
+            animate(span, 50)
+        })
+    </script> -->
+</body>
+
+</html>
